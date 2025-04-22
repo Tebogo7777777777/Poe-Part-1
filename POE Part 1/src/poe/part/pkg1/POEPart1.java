@@ -15,7 +15,7 @@ public class POEPart1 {
         boolean exit = false;
         
         while (!exit) {
-            System.out.println("\n===== USER AUTHENTICATION SYSTEM =====");
+            System.out.println("\n===== USER CHAT APP WHATSAPP =====");
             System.out.println("1. Register");
             System.out.println("2. Login");
             System.out.println("3. Exit");
@@ -52,10 +52,10 @@ public class POEPart1 {
             username = scanner.nextLine();
             
             if (!checkUserName(username)) {
-                System.out.println("Invalid username format. Please try again.");
+                System.out.println("Username is not correctly formatted ,Please ensure that your username conatins an underscore and is no more than 5 charecters in length.");
             } else if (registeredUsers.containsKey(username)) {
                 System.out.println("Username already exists. Please choose another.");
-                username = ""; // Force re-entry
+                username = ""; // This is for the user to enter the user name again 
             }
         } while (!checkUserName(username) || registeredUsers.containsKey(username));
         
@@ -65,7 +65,7 @@ public class POEPart1 {
             password = scanner.nextLine();
             
             if (!checkPasswordComplexity(password)) {
-                System.out.println("Password does not meet complexity requirements. Please try again.");
+                System.out.println("Password is not correctly formatted; Please ensure that the password contains eight characters ,a capital letter ,a number and a special character.");
             }
         } while (!checkPasswordComplexity(password));
         
@@ -77,7 +77,7 @@ public class POEPart1 {
             phoneNumber = scanner.nextLine();
             
             if (!checkCellPhoneNumber(phoneNumber)) {
-                System.out.println("Invalid phone number format. Please try again.");
+                System.out.println("cell phone number is incorrectly formated or does not contain international code.");
             }
         } while (!checkCellPhoneNumber(phoneNumber));
         
@@ -178,7 +178,6 @@ public class POEPart1 {
         
         return registeredUsers.get(username).equals(password);
     }
-    
     // Returens the log in message
     public static String returnLoginStatus(String username, String password) {
         if (loginUser(username, password)) {
